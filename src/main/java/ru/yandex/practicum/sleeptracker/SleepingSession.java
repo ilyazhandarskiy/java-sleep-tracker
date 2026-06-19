@@ -2,7 +2,6 @@ package ru.yandex.practicum.sleeptracker;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class SleepingSession {
     private final LocalDateTime startTime;
@@ -18,20 +17,20 @@ public class SleepingSession {
         this.duration = Duration.between(startTime, endTime);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        SleepingSession that = (SleepingSession) o;
-        return Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime) && sleepingQuality == that.sleepingQuality;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(startTime, endTime, sleepingQuality);
-    }
-
     public Duration getDuration() {
         return duration;
+    }
+
+    public SleepingQuality getSleepingQuality() {
+        return sleepingQuality;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
     @Override
